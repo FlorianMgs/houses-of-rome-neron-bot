@@ -1,0 +1,9 @@
+{
+    "default_gas": 700000,
+    "default_gasprice": 2.5,
+
+    "min_bond_discount": 5,
+    "min_srome_balance_to_bond": 0.2,
+    "min_pending_rewards_to_claim": 0.01,
+    "use_pending_rewards": true
+}
