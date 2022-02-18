@@ -9,4 +9,8 @@ if __name__ == "__main__":
         "If you like this tool, feel free to offer me a coffee:\n"
         "0x8b85755F6D3D3B6f984F896b219f99BC561Ed057"
     )
-    asyncio.run(main())
+    while True:
+        try:
+            asyncio.run(main())
+        except:
+            continue
