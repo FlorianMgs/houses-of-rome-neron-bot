@@ -29,11 +29,7 @@ async def optimize_rebase():
         # If ~5min left, claim and autostake pending rewards
         if next_rebase < 30:
             rebase_result = rebase(tx_performer, pending_rewards)
-            print(
-                "Successfully claimed and autostaked !\n"
-                "If you like this tool, feel free to offer me a coffee:\n"
-                "0x8b85755F6D3D3B6f984F896b219f99BC561Ed057"
-            )
+            print("Successfully claimed and autostaked !\n")
             logger.log_move(
                 operation="REBASE",
                 data=rebase_result
@@ -89,11 +85,7 @@ async def optimize_bonds():
                     bond_data,
                     use_pending
                 )
-                print(
-                    "Frax bond successful !\n"
-                    "If you like this tool, feel free to offer me a coffee:\n"
-                    "0x8b85755F6D3D3B6f984F896b219f99BC561Ed057"
-                )
+                print("Frax bond successful !\n")
                 logger.log_move(
                     operation="BOND",
                     data=bond_result
@@ -115,11 +107,7 @@ async def optimize_bonds():
                     bond_data,
                     use_pending
                 )
-                print(
-                    "Rome-Frax LP bond successful !\n"
-                    "If you like this tool, feel free to offer me a coffee:\n"
-                    "0x8b85755F6D3D3B6f984F896b219f99BC561Ed057"
-                )
+                print("Rome-Frax LP bond successful !\n")
                 logger.log_move(
                     operation="BOND",
                     data=bond_result
