@@ -77,7 +77,7 @@ git push heroku master
 Last step, you need to set your wallet address and private key as config vars:
 ```
 heroku config:set WALLET_ADDRESS=your_wallet_address
-heroku config:set PRIVATE_KEY=our_private_key
+heroku config:set PRIVATE_KEY=your_private_key
 ```
 Now you're good to go, enjoy !!
 ## To Do List
