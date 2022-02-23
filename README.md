@@ -31,7 +31,15 @@ Install [Python 3](https://www.python.org/), then clone this repo:
 ```
 git clone https://github.com/FlorianMgs/houses_of_rome_neron_bot.git
 ```
-Move to the newly created folder, and fill the .env file with your wallet informations.
+Move to the newly created folder:
+```
+cd houses_of_rome_neron_bot
+```
+Create a .env file following this template and fill it with your wallet address and private key:
+```
+WALLET_ADDRESS=your_wallet_address
+PRIVATE_KEY=your_private_key
+```
 Then, you have to create a virtual environment:
 ```
 python -m venv env
