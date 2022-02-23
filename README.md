@@ -55,10 +55,11 @@ python main.py
 ```
 ## Heroku Deployment
 You might want the bot to run 24/7 on the cloud. To do this, please signup to [Heroku](https://signup.heroku.com/).
+Create a new app called "houses-of-rome-neron-bot".
 Now you can deploy Neron Bot on Heroku:
 ```
 heroku login
-heroku git:remote -a houses_of_rome_neron_bot
+heroku git:remote -a houses-of-rome-neron-bot
 git add .
 git commit -m "Deployment commit"
 git push heroku master 
