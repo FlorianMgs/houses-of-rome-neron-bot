@@ -80,6 +80,8 @@ class TransactionsWrapper:
     def bond_frax(self, frax_amount: int) -> dict:
         print("Bonding FRAX...")
         bonding_tx = self.rome_interface.deposit_bond(
+            gas=self.rome_interface.settings['default_gas'],
+            gasprice=self.rome_interface.settings['default_gasprice'],
             bond_contract=self.rome_interface.bond_frax_contract,
             bond_contract_address=self.rome_interface.bond_frax_address,
             bonded_token_contract=self.rome_interface.frax_contract,

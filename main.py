@@ -1,4 +1,4 @@
-from controllers.controllers import main
+from controllers.controllers import main, optimize_bonds
 import asyncio
 
 
