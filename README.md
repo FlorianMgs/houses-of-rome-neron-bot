@@ -8,7 +8,7 @@ It's Python, so you can run Neron Bot on almost all OS (as long as Python is ins
 With Neron Bot, you'll never miss a great discount opportunity again, and you won't have to do all the tedious steps by hand to take advantage of it.
 
 ## Security
-Private key is needed to sign all the transactions. I have absolutely no access to it, it will stay locally on your machine. But hey, this tool is open source, so you can check by yourself by reading it that there's no need to worry. No security issues, no hidden fees !
+Private key is needed to sign all the transactions. I have absolutely no access to it, it will stay locally on your machine. That's why this tool is open source, so you can check by yourself by reading it that there's no need to worry. No security issues, no hidden fees !
 ## Features
 ### Automatic Rebase
 - Claim and Autostake pending rewards for each bonds   
