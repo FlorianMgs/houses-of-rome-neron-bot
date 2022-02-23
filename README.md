@@ -2,7 +2,8 @@
 This tool is intended to be used with [Houses Of Rome](https://romedao.finance/).   
 It will optimize your sRome balance by claiming and autostaking automatically your pending bond rewards ~5min before each rebase.   
 Also, it will automatically bond for you when a good discount opportunity is detected (5% by default).  
-If a transaction fails in the process, Neron Bot will try to perform it with more gas (3 times max). 
+If a transaction fails in the process, Neron Bot will try to perform it with more gas (3 times max).  
+It's Python, so you can run Neron Bot on almost all OS (as long as Python is installed, obviously). 
 
 With Neron Bot, you'll never miss a great discount opportunity again, and you won't have to do all the tedious steps by hand to take advantage of it.
 
@@ -50,7 +51,7 @@ Windows:
 ```
 env\scripts\activate.bat
 ```
-Linux:
+Linux and macOS:
 ```
 source env/bin/activate
 ```
