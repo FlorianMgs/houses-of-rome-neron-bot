@@ -78,7 +78,8 @@ heroku config:set WALLET_ADDRESS=your_wallet_address
 heroku config:set PRIVATE_KEY=our_private_key
 ```
 Now you're good to go, enjoy !!
-
+## Support
+If you have any questions about Houses of Rome Neron Bot, you can reach me out on Discord: Madgic#1963
 ## Donations
 If you find this tool useful, feel free to send me a coffee! (any Metamask compatible network)      
 0x8b85755F6D3D3B6f984F896b219f99BC561Ed057   
