@@ -9,7 +9,7 @@ from web3 import Web3
 import random
 
 
-web3 = Web3(Web3.WebsocketProvider("https://rpc.api.moonriver.moonbeam.network/"))
+web3 = Web3(Web3.HTTPProvider("https://rpc.api.moonriver.moonbeam.network/"))
 rome_interface = RomeInterface(web3)
 tx_performer = TransactionsWrapper(rome_interface)
 logger = Logger()
