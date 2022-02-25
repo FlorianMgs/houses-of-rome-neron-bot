@@ -6,9 +6,10 @@ from logger.logger import Logger
 from models.rome_interface import RomeInterface
 from models.transactions_wrapper import TransactionsWrapper
 from web3 import Web3
+import random
 
 
-web3 = Web3(Web3.WebsocketProvider("wss://moonriver.api.onfinality.io/public-ws"))
+web3 = Web3(Web3.WebsocketProvider("https://rpc.api.moonriver.moonbeam.network/"))
 rome_interface = RomeInterface(web3)
 tx_performer = TransactionsWrapper(rome_interface)
 logger = Logger()
@@ -20,7 +21,7 @@ async def optimize_rebase():
         # Gathering pending rewards informations: individual bonds + total balance
         pending_rewards = rome_interface.get_all_bond_pending_rewards()
 
-        await asyncio.sleep(5)
+        await asyncio.sleep(random.randint(3, 7))
 
         # Checking number of blocks before next rebase (1 block ~= 5sec)
         next_rebase = rome_interface.check_blocks_before_rebase()
@@ -116,8 +117,7 @@ async def optimize_bonds():
             else:
                 print(f"Good discount found on ROME-FRAX LP: {bond_data['rome_frax_discount']} %, but not enough sRome balance !")
 
-        # Await 2sec then repeat
-        await asyncio.sleep(2)
+        await asyncio.sleep(random.randint(1, 7))
 
 
 async def main():
