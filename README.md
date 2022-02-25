@@ -2,11 +2,13 @@
 This tool is intended to be used with [Houses Of Rome](https://romedao.finance/).   
 It will optimize your sRome balance by claiming and autostaking automatically your pending bond rewards ~5min before each rebase.   
 Also, it will automatically bond for you when a good discount opportunity is detected (5% by default).  
-If a transaction fails in the process, Neron Bot will try to perform it with more gas (3 times max).   
+If a transaction fails in the process, Neron Bot will try to perform it with more gas (3 times max).  
+It's Python, so you can run Neron Bot on almost all OS (as long as Python is installed, obviously). 
 
 With Neron Bot, you'll never miss a great discount opportunity again, and you won't have to do all the tedious steps by hand to take advantage of it.
 
-
+## Security
+Private key is needed to sign all the transactions. I have absolutely no access to it, it will stay locally on your machine. That's why this tool is open source, so you can check by yourself by reading it that there's no need to worry. No security issues, no hidden fees !
 ## Features
 ### Automatic Rebase
 - Claim and Autostake pending rewards for each bonds   
@@ -49,7 +51,7 @@ Windows:
 ```
 env\scripts\activate.bat
 ```
-Linux:
+Linux and macOS:
 ```
 source env/bin/activate
 ```
@@ -72,13 +74,17 @@ git add .
 git commit -m "Deployment commit"
 git push heroku master 
 ```
-Last step, you need to set our wallet address and private key as config vars:
+Last step, you need to set your wallet address and private key as config vars:
 ```
 heroku config:set WALLET_ADDRESS=your_wallet_address
-heroku config:set PRIVATE_KEY=our_private_key
+heroku config:set PRIVATE_KEY=your_private_key
 ```
 Now you're good to go, enjoy !!
-
+## To Do List
+- Automatically restack if a transaction fails more than 3 times in the bonding or rebase process. Currently, if it fails, you will end up with the last valid transaction resulted tokens in your wallet. Exemple, if bonding ROME for FRAX fails, you will end up with the swapped FRAX in your wallet, and have to manually bond them or swap them back for ROME.
+- Add gOhm bonding support.
+## Support
+If you have any questions or suggestions about Houses of Rome Neron Bot, you can reach me out on Discord: Madgic#1963
 ## Donations
 If you find this tool useful, feel free to send me a coffee! (any Metamask compatible network)      
 0x8b85755F6D3D3B6f984F896b219f99BC561Ed057   
