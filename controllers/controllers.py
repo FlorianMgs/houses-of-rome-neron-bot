@@ -45,7 +45,7 @@ async def optimize_bonds():
         # Gathering all important informations: discounts, srome balance, and pending rewards
         bond_data = {
             'frax_discount': rome_interface.get_bond_discount(rome_interface.bond_frax_contract),
-            'rome_frax_discount': rome_interface.get_bond_discount(rome_interface.bond_rome_frax_lp_contract),
+            #'rome_frax_discount': rome_interface.get_bond_discount(rome_interface.bond_rome_frax_lp_contract),
             'srome_balance': rome_interface.get_stacked_balance(),
             'pending_rewards': rome_interface.get_all_bond_pending_rewards()
         }
@@ -53,7 +53,7 @@ async def optimize_bonds():
         print(datetime.now())
         print(
             f'FRAX: {bond_data["frax_discount"]} %\n'
-            f'ROME-FRAX LP: {bond_data["rome_frax_discount"]} %\n'
+            #f'ROME-FRAX LP: {bond_data["rome_frax_discount"]} %\n'
             f'Pending bond rewards: {bond_data["pending_rewards"]["total"]} ROME\n'
         )
 
@@ -71,8 +71,7 @@ async def optimize_bonds():
         # Two conditions to meet before bonding: Discount A > Discount B and Discount > min discount defined in settings
 
         # FRAX BOND
-        if bond_data["frax_discount"] > bond_data["rome_frax_discount"] and \
-                bond_data["frax_discount"] > rome_interface.settings["min_bond_discount"]:
+        if bond_data["frax_discount"] > rome_interface.settings["min_bond_discount"]:
 
             # Condition 1 met.
             # Now, we have to check if user has enough balance to bond.
@@ -95,27 +94,27 @@ async def optimize_bonds():
             else:
                 print(f"Good discount found on FRAX: {bond_data['frax_discount']} %, but not enough sRome balance !")
 
-        # ROME-FRAX BOND
-        elif bond_data["rome_frax_discount"] > bond_data["frax_discount"] and \
-                bond_data["rome_frax_discount"] > rome_interface.settings["min_bond_discount"]:
-
-            if bond_data["srome_balance"] + bond_data["pending_rewards"]["rome_frax"] > rome_interface.settings["min_srome_balance_to_bond"] or use_pending:
-
-                print(f"Good discount found on ROME-FRAX LP: {bond_data['rome_frax_discount']} %")
-
-                bond_result = rome_frax_bond(
-                    tx_performer,
-                    bond_data,
-                    use_pending
-                )
-                print("Rome-Frax LP bond successful !\n")
-                logger.log_move(
-                    operation="BOND",
-                    data=bond_result
-                )
-
-            else:
-                print(f"Good discount found on ROME-FRAX LP: {bond_data['rome_frax_discount']} %, but not enough sRome balance !")
+        # # ROME-FRAX BOND
+        # elif bond_data["rome_frax_discount"] > bond_data["frax_discount"] and \
+        #         bond_data["rome_frax_discount"] > rome_interface.settings["min_bond_discount"]:
+        #
+        #     if bond_data["srome_balance"] + bond_data["pending_rewards"]["rome_frax"] > rome_interface.settings["min_srome_balance_to_bond"] or use_pending:
+        #
+        #         print(f"Good discount found on ROME-FRAX LP: {bond_data['rome_frax_discount']} %")
+        #
+        #         bond_result = rome_frax_bond(
+        #             tx_performer,
+        #             bond_data,
+        #             use_pending
+        #         )
+        #         print("Rome-Frax LP bond successful !\n")
+        #         logger.log_move(
+        #             operation="BOND",
+        #             data=bond_result
+        #         )
+        #
+        #     else:
+        #         print(f"Good discount found on ROME-FRAX LP: {bond_data['rome_frax_discount']} %, but not enough sRome balance !")
 
         await asyncio.sleep(random.randint(1, 7))
 
